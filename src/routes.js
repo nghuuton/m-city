@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 
 import Home from "./Components/home";
 import SignIn from "./Components/signin";
+import Dashboard from "./Components/admin/Dashboard";
 
 const Routes = (props) => {
     return (
@@ -11,6 +12,7 @@ const Routes = (props) => {
             <Switch>
                 <Route exact component={Home} path="/" />
                 <Route exact component={SignIn} path="/sign-in" />
+                <Route exact component={Dashboard} path="/dashboard" />
             </Switch>
         </Layout>
     );
