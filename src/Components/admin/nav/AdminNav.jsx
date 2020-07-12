@@ -31,8 +31,8 @@ const AdminNav = () => {
 
     const renderItems = () =>
         links.map((link) => (
-            <Link key={link.title} to={link.linkTo} style={style}>
-                <ListItem>{link.title}</ListItem>
+            <Link key={link.title} to={link.linkTo}>
+                <ListItem style={style}>{link.title}</ListItem>
             </Link>
         ));
 
