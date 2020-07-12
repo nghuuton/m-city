@@ -15,6 +15,7 @@ class Enroll extends Component {
                     name: "email_input",
                     type: "email",
                     placeholder: "Enter your email",
+                    autoComplete: "off",
                 },
                 validation: {
                     required: true,
@@ -26,7 +27,7 @@ class Enroll extends Component {
         },
     };
     updateForm(element) {
-        console.log(element);
+        // console.log(element);
         const newFormdata = { ...this.state.formdata };
         const newElement = { ...newFormdata[element.id] };
         newElement.value = element.event.target.value;
@@ -37,13 +38,29 @@ class Enroll extends Component {
 
         newFormdata[element.id] = newElement;
 
-        console.log(newFormdata);
+        // console.log(newFormdata);
 
         this.setState({
+            formError: false,
             formdata: newFormdata,
         });
     }
-    submitForm() {}
+    submitForm(event) {
+        event.preventDefault();
+        let dataSubmit = {};
+        let formIsvalid = true;
+        for (let key in this.state.formdata) {
+            dataSubmit[key] = this.state.formdata[key].value;
+            formIsvalid = this.state.formdata[key].valid && formIsvalid;
+        }
+        if (formIsvalid) {
+            console.log(dataSubmit);
+        } else {
+            this.setState({
+                formError: true,
+            });
+        }
+    }
     render() {
         return (
             <Fade>
@@ -57,6 +74,14 @@ class Enroll extends Component {
                                 change={(element) => this.updateForm(element)}
                             />
                         </div>
+                        {this.state.formError ? (
+                            <div className="error_label">
+                                Something is wrong, try again.
+                            </div>
+                        ) : null}
+                        <button onClick={(event) => this.submitForm(event)}>
+                            Enroll
+                        </button>
                     </form>
                 </div>
             </Fade>
