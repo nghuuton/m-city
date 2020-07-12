@@ -38,7 +38,7 @@ class AdminMatches extends Component {
         return (
             <AdminLayout>
                 <div>
-                    <Paper>
+                    <TableContainer component={Paper}>
                         <Table>
                             <TableHead>
                                 <TableRow>
@@ -85,7 +85,7 @@ class AdminMatches extends Component {
                                     : null}
                             </TableBody>
                         </Table>
-                    </Paper>
+                    </TableContainer>
                     <div className="admin_progress">
                         {isloading ? (
                             <CircularProgress

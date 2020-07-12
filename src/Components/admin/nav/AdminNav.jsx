@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import ListItem from "@material-ui/core/ListItem";
 import { firebase } from "../../../firebase.js";
 
 const AdminNav = () => {
+    const history = useHistory();
     const links = [
         {
             title: "Matches",
@@ -41,7 +42,10 @@ const AdminNav = () => {
             .auth()
             .signOut()
             .then(
-                () => console.log("Log out successfull !"),
+                () => {
+                    console.log("Log out successfull !");
+                    history.push("/sign-in");
+                },
                 (err) => {
                     console.log("Error log out");
                 }

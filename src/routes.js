@@ -9,6 +9,7 @@ import Home from "./Components/home";
 import SignIn from "./Components/signin";
 import Dashboard from "./Components/admin/Dashboard";
 import AdminMatches from "./Components/admin/matches";
+import AddEditMatch from "./Components/admin/matches/addEditMatch";
 
 const Routes = (props) => {
     return (
@@ -25,6 +26,11 @@ const Routes = (props) => {
                     path="/admin-matches"
                     exact
                     component={AdminMatches}
+                />
+                <PrivateRoute
+                    {...props}
+                    path="/admin-matches/edit-match/:id?"
+                    component={AddEditMatch}
                 />
                 <PublicRoute
                     {...props}
