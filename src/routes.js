@@ -29,7 +29,12 @@ const Routes = (props) => {
                 />
                 <PrivateRoute
                     {...props}
-                    path="/admin-matches/edit-match/:id?"
+                    path="/admin-matches/edit-match/:id"
+                    component={AddEditMatch}
+                />
+                <PrivateRoute
+                    {...props}
+                    path="/admin-matches/edit-match/"
                     component={AddEditMatch}
                 />
                 <PublicRoute

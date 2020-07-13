@@ -5,7 +5,7 @@ import FormField from "../../ui/formField";
 import { validate } from "../../ui/misc";
 
 import { firebaseLooper } from "../../ui/misc";
-import { firebaseDB, firebaseTeam } from "../../../firebase";
+import { firebaseDB, firebaseTeam, firebaseMatches } from "../../../firebase";
 class AddEditMatch extends Component {
     state = {
         matchId: "",
@@ -222,7 +222,7 @@ class AddEditMatch extends Component {
         };
 
         if (!matchId) {
-            // ADD MATCH
+            getTeams(false, "Add Match");
         } else {
             firebaseDB
                 .ref(`matches/${matchId}`)
@@ -277,6 +277,16 @@ class AddEditMatch extends Component {
                         });
                     });
             } else {
+                firebaseMatches
+                    .push(dataToSubmit)
+                    .then(() => {
+                        this.props.history.push("/admin-matches");
+                    })
+                    .catch((err) => {
+                        this.setState({
+                            formError: true,
+                        });
+                    });
             }
         } else {
             this.setState({
