@@ -26,7 +26,7 @@ class AdminPlayers extends Component {
             .then((snapshot) => {
                 const players = firebaseLooper(snapshot);
                 this.setState({
-                    isloading: false,
+                    isLoading: false,
                     players: reverseArray(players),
                 });
             })
