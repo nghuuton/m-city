@@ -1,3 +1,9 @@
+## Deploy 
+https://m-city-49e73.firebaseapp.com/
+Login: https://m-city-49e73.firebaseapp.com/sign-in
+Email: nghuuton@gmail.com
+Password: 123456
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
