@@ -17,7 +17,7 @@ const MatchesHome = () => {
                     size="22px"
                     color="#0c1731"
                     link={true}
-                    linkTo="/the-team"
+                    linkTo="/the-matches"
                 >
                     See more matches
                 </Tag>

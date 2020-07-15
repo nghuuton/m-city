@@ -34,7 +34,7 @@ class Fileuploader extends Component {
             .child(filename)
             .getDownloadURL()
             .then((url) => {
-                console.log(url);
+                // console.log(url);
                 this.setState({
                     fileURL: url,
                 });

@@ -12,6 +12,7 @@ import AdminMatches from "./Components/admin/matches";
 import AddEditMatch from "./Components/admin/matches/addEditMatch";
 import AdminPlayers from "./Components/admin/players";
 import AddEditPlayers from "./Components/admin/players/addEditPlayers";
+import TheTeam from "./Components/theTeam";
 
 const Routes = (props) => {
     return (
@@ -57,12 +58,20 @@ const Routes = (props) => {
                     path="/admin-players/add-players"
                     component={AddEditPlayers}
                 />
+
                 <PublicRoute
                     {...props}
                     restricted={false}
                     path="/"
                     exact
                     component={Home}
+                />
+                <PublicRoute
+                    {...props}
+                    restricted={false}
+                    path="/the-team"
+                    exact
+                    component={TheTeam}
                 />
                 <PublicRoute
                     {...props}
