@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "./Hoc/Layout";
-import { Switch } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import PrivateRoute from "./Components/authRoutes/privateRoutes";
 import PublicRoute from "./Components/authRoutes/publicRoutes";
@@ -14,6 +14,7 @@ import AdminPlayers from "./Components/admin/players";
 import AddEditPlayers from "./Components/admin/players/addEditPlayers";
 import TheTeam from "./Components/theTeam";
 import TheMatches from "./Components/theMatches";
+import NotFound from "./Components/ui/not_found";
 
 const Routes = (props) => {
     return (
@@ -88,6 +89,8 @@ const Routes = (props) => {
                     exact
                     component={SignIn}
                 />
+                <Route path="/not-found" component={NotFound} />
+                <Redirect to="not-found" />
             </Switch>
         </Layout>
     );
